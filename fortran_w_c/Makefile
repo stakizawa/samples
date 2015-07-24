@@ -2,6 +2,8 @@ FC = gfortran
 CC = gcc
 FLD = gfortran
 CLD = gcc
+LIBPATH = /usr/local/lib/gcc/5
+LIBS = -lgfortran
 
 .SUFFIXES : .f90 .c
 
@@ -25,7 +27,7 @@ ftest: $(FOBJ) fmain.o
 	$(FLD) -o $@ $^
 
 ctest: $(FOBJ) $(COBJ) cmain.o
-	$(CLD) -L/usr/local/lib/gcc/5 -o $@ $^ -lgfortran
+	$(CLD) -L$(LIBPATH) -o $@ $^ $(LIBS)
 
 clean:
 	rm -f $(TARGET) $(FOBJ) $(COBJ) $(MOBJ) simple.mod
