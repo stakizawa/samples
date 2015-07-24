@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-void print_sum4_(int *, int *, int *, int *);
-void __simple_MOD_print_sum3(int *, int *, int *);
-int  __simple_MOD_sum3(int *, int *, int *);
+extern void print_sum4_(int *, int *, int *, int *);
+extern void __simple_MOD_print_sum3(int *, int *, int *);
+extern int  __simple_MOD_sum3(int *, int *, int *);
 
 int
 main(int argc, char **argv)

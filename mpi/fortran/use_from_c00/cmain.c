@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include <mpi.h>
 
-void __simple_MOD_fetch_mpi_param(MPI_Fint *, int *, int *);
-void fetch_mpi_param_nonmod_(MPI_Fint *, int *, int *);
+extern void __simple_MOD_fetch_mpi_param(MPI_Fint *, int *, int *);
+extern void fetch_mpi_param_nonmod_(MPI_Fint *, int *, int *);
 
 int
 main(int argc, char **argv)
