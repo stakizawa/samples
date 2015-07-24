@@ -3,11 +3,11 @@
 
 
 /*
- * MPI�̑��������֐��̃e�X�g
+ * MPIの属性処理関数のテスト
  * getAttribute
- *   ����MPI_WTIME_IS_GLOBAL�̒l��ǂݏo�͂���֐�
+ *   属性MPI_WTIME_IS_GLOBALの値を読み出力する関数
  * setAttribute
- *   ���̂�������
+ *   そのうち実装
  */
 
 void getAttribute();
