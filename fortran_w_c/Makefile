@@ -10,7 +10,6 @@ LIBS = -lgfortran
 TARGET = ftest ctest
 
 FOBJ = simple_mod.o funcs.o
-COBJ =
 MOBJ = fmain.o cmain.o
 
 all: $(TARGET)
@@ -26,8 +25,8 @@ all: $(TARGET)
 ftest: $(FOBJ) fmain.o
 	$(FLD) -o $@ $^
 
-ctest: $(FOBJ) $(COBJ) cmain.o
+ctest: $(FOBJ) cmain.o
 	$(CLD) -L$(LIBPATH) -o $@ $^ $(LIBS)
 
 clean:
-	rm -f $(TARGET) $(FOBJ) $(COBJ) $(MOBJ) simple.mod
+	rm -f $(TARGET) $(FOBJ) $(MOBJ) simple.mod
