@@ -1,7 +1,10 @@
 #include <stdio.h>
 
+/* A Fortran subroutine defined outside of a module */
 extern void print_sum4_(int *, int *, int *, int *);
+/* A Fortran subroutine defined in a module */
 extern void __simple_MOD_print_sum3(int *, int *, int *);
+/* A Fortran function defined in a module */
 extern int  __simple_MOD_sum3(int *, int *, int *);
 
 int

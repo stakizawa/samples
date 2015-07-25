@@ -1,5 +1,5 @@
 /*
-  Endian Neutralコードのテスト
+  Test for an endian neutral code
 
   detect_endianness2.cをベースにしている。
 

@@ -4,7 +4,9 @@
 #include <stdio.h>
 #include <mpi.h>
 
+/* A Fortran subroutine defined in a module */
 extern void __simple_MOD_fetch_mpi_param(MPI_Fint *, int *, int *);
+/* A Fortran subroutine defined outside of a module */
 extern void fetch_mpi_param_nonmod_(MPI_Fint *, int *, int *);
 
 int

@@ -1,5 +1,5 @@
 /*
-  実行システムのエンディアンを判定
+  Judge the endianness of the system
  */
 
 #include <stdio.h>
