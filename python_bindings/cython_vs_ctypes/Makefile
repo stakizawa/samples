@@ -17,4 +17,4 @@ cmain: $(LIB) cmain.o
 	$(CC) -o $@ $^ -L. -lupdate
 
 clean:
-	-rm -f $(LIB) $(OBJS) cmain
+	-rm -f $(LIB) $(OBJS) cmain *.pyc
