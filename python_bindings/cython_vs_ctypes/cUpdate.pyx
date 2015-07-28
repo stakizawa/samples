@@ -4,7 +4,7 @@ cimport update
 cdef int update_callback(const int x):
     return update_fn(x)
 
-class Updater(object):
+cdef class Updater(object):
     def __init__(self):
         super(Updater, self).__init__()
 
@@ -28,8 +28,6 @@ class Updater(object):
         if f == None:
             f = lambda x: 0
         update_fn = f
-        #cdef int f_callback(const int x):
-        #    return f(x)
         update.update_values(cary, len(lst), update_callback)
 
         for i in range(len(lst)):
