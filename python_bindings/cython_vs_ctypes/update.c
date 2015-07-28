@@ -17,3 +17,9 @@ print_values(int *vals, size_t count)
     }
     printf("\n");
 }
+
+char *
+version()
+{
+    return VERSION;
+}

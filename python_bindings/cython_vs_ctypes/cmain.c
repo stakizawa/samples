@@ -11,6 +11,9 @@ increment_one(const int val)
 int
 main()
 {
+    char *update_version = version();
+    printf("Version: %s\n", update_version);
+
     size_t n = 10;
     int *vals = (int *)malloc(sizeof(int) * (size_t)n);
     for (size_t i = 0; i < n; i++) {

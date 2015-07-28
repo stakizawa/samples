@@ -17,6 +17,10 @@ class Updater(object):
                                        ctypes.c_size_t]
         self._print_values.restype = None
 
+        self._version = mod_update.version
+        self._version.argtypes = []
+        self._version.restype = ctypes.c_char_p
+
     def update(self, lst, f=None):
         if f == None:
             f = lambda x: 0
@@ -42,3 +46,6 @@ class Updater(object):
     def _to_int_array(self, lst):
         IntArray = ctypes.c_int * len(lst)
         return IntArray(*lst)
+
+    def version(self):
+        return self._version()

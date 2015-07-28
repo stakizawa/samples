@@ -2,6 +2,8 @@ import update
 
 updater = update.Updater()
 
+print 'version: %s' % (updater.version())
+
 lst = [1, 2, 3, 4, 5]
 print 'test1'
 updater.print_values(lst)
