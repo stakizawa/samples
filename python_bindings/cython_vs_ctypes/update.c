@@ -4,6 +4,9 @@
 void
 update_values(int *vals, size_t count, update_func_t f)
 {
+#ifdef _OPENMP
+#pragma omp parallel for
+#endif
     for (size_t i = 0; i < count; i++) {
         vals[i] = f(vals[i]);
     }
