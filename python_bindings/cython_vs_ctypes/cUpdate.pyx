@@ -9,12 +9,14 @@ cdef class Updater(object):
         super(Updater, self).__init__()
 
     def print_values(self, lst):
-        cdef int *cary = <int*>malloc(sizeof(int) * len(lst))
+        cdef int cary_size = len(lst)
+        cdef int *cary = <int*>malloc(sizeof(int) * cary_size)
         if cary == NULL:
             raise MemoryError('Unable to allocate array.')
-        for i in range(len(lst)):
+        for i in range(cary_size):
             cary[i] = lst[i]
-        update.print_values(cary, len(lst))
+        with nogil:
+            update.print_values(cary, cary_size)
         free(cary)
 
     def update(self, lst, f=None):
