@@ -1,4 +1,5 @@
 cdef extern from 'update.h':
-    void update_values(int *vals, size_t count, int (*update_func)(const int))
+    ctypedef int (*update_func_t)(const int) except *
+    void update_values(int *vals, size_t count, update_func_t f)
     void print_values(int *vals, size_t count)
     char *version()

@@ -1,7 +1,7 @@
 from libc.stdlib cimport malloc, free
 cimport update
 
-cdef int update_callback(const int x):
+cdef int update_callback(const int x) except *:
     return update_fn(x)
 
 cdef class Updater(object):
