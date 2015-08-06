@@ -1,3 +1,4 @@
+# cython: profile=True
 from libc.stdlib cimport malloc, free
 cimport update
 
