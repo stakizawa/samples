@@ -12,7 +12,7 @@ PYINC = $(shell python -c \
 all: $(LIB) cmain $(CYLIB)
 
 .c.o:
-	$(CC) -std=gnu99 -Wall -fPIC -fopenmp -c $<
+	$(CC) -std=gnu99 -O2 -Wall -fPIC -fopenmp -c $<
 
 $(LIB): update.o
 	$(CC) -shared -fopenmp -o $@ $<
@@ -22,7 +22,7 @@ cmain: $(LIB) cmain.o
 
 $(CYLIB): update.o update.pxd cUpdate.pyx
 	cython -o cUpdate.c cUpdate.pyx
-	$(CC) -I$(PYINC) -fPIC -fopenmp -c cUpdate.c
+	$(CC) -I$(PYINC) -O2 -fPIC -fopenmp -c cUpdate.c
 	$(CC) -shared -fopenmp -o $@ update.o cUpdate.o
 
 clean:
