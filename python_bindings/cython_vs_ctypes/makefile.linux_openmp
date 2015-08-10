@@ -2,7 +2,7 @@ CC = gcc
 
 OBJS = update.o cmain.o
 LIB = libupdate.so
-CYLIB = cUpdate.so
+CYLIB = cUpdate_omp.so
 
 PYINC = $(shell python -c \
 	"from distutils import sysconfig; print(sysconfig.get_python_inc())")
@@ -20,11 +20,11 @@ $(LIB): update.o
 cmain: $(LIB) cmain.o
 	$(CC) -o $@ $^ -L. -lupdate -fopenmp
 
-$(CYLIB): update.o update.pxd cUpdate.pyx
-	cython -o cUpdate.c cUpdate.pyx
-	$(CC) -I$(PYINC) -O2 -fPIC -fopenmp -c cUpdate.c
-	$(CC) -shared -fopenmp -o $@ update.o cUpdate.o
+$(CYLIB): update.o update_omp.pxd cUpdate_omp.pyx
+	cython -o cUpdate_omp.c cUpdate_omp.pyx
+	$(CC) -I$(PYINC) -O2 -fPIC -fopenmp -c cUpdate_omp.c
+	$(CC) -shared -fopenmp -o $@ update.o cUpdate_omp.o
 
 clean:
 	-rm -f $(LIB) $(OBJS) cmain *.pyc
-	-rm -f $(CYLIB) cUpdate.c cUpdate.o
+	-rm -f $(CYLIB) cUpdate_omp.c cUpdate_omp.o
